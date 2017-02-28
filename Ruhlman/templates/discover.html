@@ -1,0 +1,92 @@
+<!-- Andrea Jackson
+Ruhlman Website
+discover.html -->
+
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block head %}
+  {{super()}}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/customBootstrap.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row"> <!-- vertical-center class -->
+    <div class = "col-lg-12">
+
+    	<div>
+    	  <h1 class="display-1 jumbofont" align="center">
+          <a class=purple>D</a><a class=yellow>i</a><a class=red>s</a><a class=green>c</a><a class=purple>o</a><a class=yellow>v</a><a class=red>e</a><a class=green>r</a>
+        </h1>
+    	  <div class="row">
+    	  	<div class="col-lg-6 col-md-offset-3 form-group has-feedback">
+
+    		  <form class="form-horizontal" action="{{ url_for('main.search') }}" method="post">
+    	        {{ sForm.hidden_tag() }}
+    	        {{ wtf.form_errors(sForm, hiddens="only") }}
+    	        {{ wtf.form_field(sForm.search, "inline") }}
+    	    </form>
+          <span class="glyphicon glyphicon-search form-control-feedback"></span>
+
+          </div>
+      	</div>
+    	</div>
+
+	  </div>
+  </div>
+
+</div>
+
+
+<div class = "container">
+
+  <div class = "row">
+
+    <div class = "col-lg-2">
+      <div>
+        <img src="{{ url_for('static', filename='images/2010StudentPhoto.JPG') }}" class = "fixToBottom left" height = "175">
+      </div>
+    </div>
+
+    <div class = "col-lg-2">
+      <div>
+        <img src="{{ url_for('static',filename='images/1999StudentSciPhoto.jpg') }}" class = "fixToBottom left20" height = "175" width="128">
+      </div>
+    </div>
+
+    <div class = "col-lg-3">
+      <div>
+        <img src="{{ url_for('static', filename='images/2001StudentPhoto.JPG') }}" class = "fixToBottom left30" height = "175">
+      </div>
+    </div>
+
+    <div class = "col-lg-3">
+      <div>
+        <img src="{{ url_for('static', filename='images/1999StudentPhoto.jpg') }}" class = "fixToBottom left50" height = "175">
+      </div>
+    </div>
+
+    <div class = "col-lg-3">
+      <div>
+        <img src="{{ url_for('static', filename='images/1999StudentSculpture.jpg') }}" class = "fixToBottom left61" height = "175">
+      </div>
+    </div>
+
+    <div class = "col-lg-3">
+      <div>
+        <img src="{{ url_for('static', filename='images/2013StudentPhoto.jpg') }}" class = "fixToBottom left70" height = "175">
+      </div>
+    </div>
+
+    <div class = "col-lg-2">
+      <div>
+        <img src="{{ url_for('static', filename='images/1997StudentPhoto.JPG') }}" class = "fixToBottom right" height = "175">
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}

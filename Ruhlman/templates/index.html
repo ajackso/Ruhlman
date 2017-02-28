@@ -1,0 +1,50 @@
+<!-- Andrea Jackson
+landingPage.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/homepage_style.css') }}">
+    </head>
+
+    <body id = "background">
+
+        <div id="logoContent">
+
+            <img src="{{ url_for('static', filename='images/Wellesley_Logo.png') }}" class="logo" height="90" width="157.5"/>
+
+        </div>
+
+        <div id="wrapper">
+
+            <div id="content">
+
+                <header>
+                    <h1>Ruhlman</h1>
+                </header>
+
+                <section>
+                    <p id="welcome">
+                        Welcome to the interactive Ruhlman Website!
+                        <br>
+                     <!--    Click one of the buttons below to explore trends and patterns in the Ruhlman Conference. -->
+                    </p>
+                </section>
+
+            </div>
+
+            <div id="content-buttons">
+
+                <a href="/explore"><button class="explore" type="button">Explore</button></a>
+                <a href="/discover"><button class="discover" type="button">Discover</button></a>
+                <a href="/interact"><button class="interact" type="button">Interact</button></a>
+
+            </div>
+
+        </div>
+  </body>
+
+</html>

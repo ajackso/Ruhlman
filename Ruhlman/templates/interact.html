@@ -1,0 +1,274 @@
+<!-- Andrea Jackson
+Ruhlman MiniApp
+inquire.html -->
+
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block head %}
+	{{super()}}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/interact.css') }}">
+{% endblock %}
+
+{% block content %}
+
+  <div class="container-fluid">
+        <div class="row">
+
+          <!-- shortenWidth -->
+            <div class="col-lg-4">
+              <div class="card">
+                <div class="front">
+                  <div class="card-title instructions">Interact</div>
+                  <div class="card-body"> Welcome to the Interact Section! Click on one of the small cards to reveal interesting statistics about Ruhlman Conferences at Wellesley College.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-2">
+              <div class="grid-card">
+                <div class="front">
+                        <div class="card-title"> How many Ruhlman presentations have occurred in the past 20 years?</div>
+                </div>
+                <div class="back yellow">
+                        <div class="card-body"> In the past 20 years of Ruhlman, there have been <strong>3015</strong> unique presentations.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-2">
+              <div class="grid-card">
+                <div class="front">
+                        <div class="card-title"> Over the past 20 years of Ruhlman Conferences, what department has advised the most Ruhlman presentations?</div>
+                </div>
+                <div class="back red">
+                        <div class="card-body"> In the past 20 years of Ruhlman, the <strong>Biological Sciences</strong> department has advised <strong>323<strong> Ruhlman presentations. Analysis provided by Nina-Marie Amadeo</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-2">
+              <div class="grid-card">
+                <div class="front">
+                        <div class="card-title"> Which Ruhlman Conference year hosted the most Ruhlman presentations to date?</div>
+                </div>
+                <div class="back purple">
+                        <div class="card-body"> The Ruhlman Conference in the year 2000 successfully hosted <strong>187</strong> student presentations.</div>
+                </div>
+              </div>
+            </div>
+
+        </div>
+
+      <div class="row">
+
+          <div class="col-lg-2">
+            <div class="grid-card">
+              <div class="front">
+                      <div class="card-title">Which Ruhlman Conference year hosted the least amount of Ruhlman presentations?</div>
+              </div>
+              <div class="back red">
+                      <div class="card-body">The 1997 Ruhlman Conference only hosted 77 student presentations, however, this was the first Ruhlman Conference in Wellesley history.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2">
+            <div class="grid-card">
+              <div class="front">
+                      <!-- <div class="card-title"></div> -->
+                      <div class="card-title"> How many unique students have participated in the past 20 years of Ruhlman?</div>
+              </div>
+              <div class="back green">
+                      <!-- <div class="card-title"></div> -->
+                      <div class="card-body"> In the past 20 years of Ruhlman, 2650 students have participated in a Ruhlman Conference.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2">
+            <div class="grid-card">
+              <div class="front">
+                      <div class="card-title"> What department has advised the second most amount of Ruhlman presentations?</div>
+              </div>
+              <div class="back purple">
+                      <div class="card-body">The <strong>Chemistry</strong> department has advised <strong>320<strong> Ruhlman presentations. Analysis provided by Nina-Marie Amadeo</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2">
+            <div class="grid-card">
+              <div class="front">
+                      <div class="card-title">Which advisor has advised the most Ruhlman presentations in the past 20 years of Ruhlman Conferences?</div>
+                      <!-- <div class="card-body"></div> -->
+              </div>
+              <div class="back yellow">
+                      <div class="card-body">Professor Mary Allen of the Biological Sciences department has advised 60 individual Ruhlman presentations.Analysis provided by Maja Svanberg</div>
+                      <!-- <div class="card-body"></div> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2">
+            <div class="grid-card">
+              <div class="front">
+                      <div class="card-title">What student major has been the most common major of Ruhlman presenters over the past 20 years of Ruhlman?</div>
+                      <!-- <div class="card-body"></div> -->
+              </div>
+              <div class="back green">
+                      <div class="card-body">Pychology student majors have been the most popular student major in all 20 years of Ruhlman Conferences. 156 Pyschology majors have presented at Ruhlman thus far. Analysis provided by Jackie Hom</div>
+                      <!-- <div class="card-body"></div> -->
+              </div>
+            </div>
+          </div>
+
+      </div> <!-- end row -->
+
+    <div class="row">
+
+          <div class="col-lg-2">
+            <div class="grid-card">
+              <div class="front">
+                      <div class="card-title">Which departments have advised the least amount of Ruhlman presentations?</div>
+                      <!-- <div class="card-body"></div> -->
+              </div>
+              <div class="back yellow">
+                      <div class="card-body">The Quantitative Reasoning, Urban Studies, Medival/Renaissance and Media Arts and Sciences departments have only advised 1 Ruhlman presentation in the history of Ruhlman Conferences. Analysis provided by Nina-Marie Amadeo</div>
+                      <!-- <div class="card-body"></div> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2">
+            <div class="grid-card">
+              <div class="front">
+                      <div class="card-title">Which advisor has advised the second most amount of Ruhlman presentations in the past 20 years of Ruhlman Conferences?</div>
+                      <!-- <div class="card-body"></div> -->
+              </div>
+              <div class="back red">
+                      <div class="card-body">Professor David Haines of the Chemistry department and Professor Thomas Cushman of the Sociology department have each advised 53 Ruhlman presentations.</div>
+                      <!-- <div class="card-body"></div> -->
+              </div>
+            </div>
+           </div>
+
+           <div class="col-lg-2">
+              <div class="grid-card">
+                <div class="front">
+                        <div class="card-title">What student class year has consecutively dominated Ruhlman Conference presentations for the past 20 years?</div>
+                        <!-- <div class="card-body"></div> -->
+                </div>
+                <div class="back green">
+                        <div class="card-body">Seniors have consistently presented the most at Ruhlman Conferences. For most conference years, they've made up at least 50% of student presenters. Analysis provided by Clara Sorensen and Anne Schwartz</div>
+                        <!-- <div class="card-body"></div> -->
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-2">
+              <div class="grid-card">
+                <div class="front">
+                        <div class="card-title">Which Ruhlman Conference had no first-year student presenters?</div>
+                        <!-- <div class="card-body"></div> -->
+                </div>
+                <div class="back purple">
+                        <div class="card-body">The Ruhlman Conference of 2002 had no first-year students participate in the Ruhlman Conference. Analysis provided by Clara Sorensen and Anne Schwartz</div>
+                        <!-- <div class="card-body"></div> -->
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-2">
+              <div class="grid-card">
+                <div class="front">
+                        <div class="card-title">Which advisors advised the most Ruhlman presentations in 2008?</div>
+                        <!-- <div class="card-body"></div> -->
+                </div>
+                <div class="back red">
+                        <div class="card-body">Professors Rosanna Hertz of the Women's and Gender Studies dept, Mary Allen of the Biological Sciences dept, and Irene Mata of the Women's and Gender Studies dept each advised 7 students during the 2008 Ruhlman Conference. Analysis provided by Anne Schwartz</div>
+                </div>
+              </div>
+            </div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-lg-2">
+          <div class="grid-card">
+            <div class="front">
+                    <div class="card-title">What is the third most common student major of Ruhlman presenters over the past 20 years of Ruhlman?</div>
+                    <!-- <div class="card-body"></div> -->
+            </div>
+            <div class="back green">
+                    <div class="card-body">Economics student majors have been the third most popular student major in all 20 years of Ruhlman Conferences. 98 English majors have presented at Ruhlman. Analysis provided by Julia Chmyz</div>
+                    <!-- <div class="card-body"></div> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2">
+          <div class="grid-card">
+            <div class="front">
+                    <div class="card-title">What department has advised the most students outside of it's own department?</div>
+                    <!-- <div class="card-body"></div> -->
+            </div>
+            <div class="back purple">
+<!--                     <div class="card-title">Biological Sciences department</div> -->
+                    <div class="card-body">Over the past 20 years of Ruhlman, 93 Ruhlman presentations have been advised by Biology advisors and presented by non-Biology student majors. Analysis provided by Julia Chmyz</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2">
+          <div class="grid-card">
+            <div class="front">
+                    <div class="card-title">How many Ruhlman student presenters had an advisor from from a department different than their student major?</div>
+                    <!-- <div class="card-body"></div> -->
+            </div>
+            <div class="back yellow">
+                    <div class="card-body">1659 or about 55% of Ruhlman presentations have presentation advisors and students from different majors/departments. Analysis provided by Valerie Zhao</div>
+                    <!-- <div class="card-body"></div> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2">
+          <div class="grid-card">
+            <div class="front">
+                    <div class="card-title">What student major has been advised outside of it's own major department the most?</div>
+                    <!-- <div class="card-body"></div> -->
+            </div>
+            <div class="back red">
+                    <div class="card-body">59 Neuroscience student majors have been advised by non-Neuroscience advisors. Analysis provided by Julia Chmyz</div>
+                    <!-- <div class="card-body"></div> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2">
+          <div class="grid-card">
+            <div class="front">
+                    <div class="card-title">What student major has been the second most common major of Ruhlman presenters over the past 20 years of Ruhlman?</div>
+                    <!-- <div class="card-body"></div> -->
+            </div>
+            <div class="back yellow">
+                    <div class="card-body">English student majors have been the second most popular student major. 111 English majors have presented at Ruhlman. Analysis provided by Julia Chmyz</div>
+                    <!-- <div class="card-body"></div> -->
+            </div>
+          </div>
+
+        </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block scripts %}
+	{{super()}}
+  <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+  <script>
+    $(".grid-card").flip({trigger:'click'});
+  </script>
+{% endblock %}

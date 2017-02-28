@@ -1,0 +1,28 @@
+{%- extends "bootstrap/base.html" %}
+
+{% block title %} Ruhlman {% endblock %}
+
+{% block styles %}
+  {{super()}}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/customBootstrap.css') }}">
+{% endblock %}
+
+{% block navbar %}
+  <nav class="navbar navbar-default navbar-custom" role="navigation">
+    <a class="navbar-brand navbar-left" href="{{ url_for('main.index') }}"><span><img src="{{ url_for('static', filename='images/Wellesley_Logo.png') }}" class = "logo" height="30" width="52.5"></span><h6>Ruhlman</h6> <!-- 25 by 43.75 -->
+    </a>
+      <div class="container-fluid">
+        <div class = "row">
+            <div class = "col-lg-3">
+              <ul class="nav nav-pills">
+                <li role="presentation"><a href="{{ url_for('main.explore') }}">Explore</a></li>
+                <li role="presentation"><a href="{{ url_for('main.discover') }}">Discover</a></li>
+                <li role="presentation"><a href="{{ url_for('main.interact') }}">Interact</a></li>
+              </ul>
+            </div>
+
+        </div>
+    </div>
+  </nav>
+{% endblock %}
+

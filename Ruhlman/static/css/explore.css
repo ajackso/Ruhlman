@@ -1,0 +1,21 @@
+/*Andrea Jackson
+Ruhlman Website
+explore.css*/
+
+figure figcaption {
+    text-align: center;
+    font-family: Futura;
+    font-size: 16px;
+}
+
+.intro{
+  background-color: #d1e2f6;
+}
+
+.graphs{
+  background-color: #fff8b8;
+}
+
+body {
+  font-family: Futura;
+}

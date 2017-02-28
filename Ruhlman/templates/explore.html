@@ -1,0 +1,163 @@
+<!-- Andrea Jackson
+Ruhlman Website
+explore.html -->
+
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block head %}
+    {{super()}}
+    <!-- Magnific Popup core CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/explore.css')}}">
+
+{% endblock %}
+
+{% block title %} RuhlmanApp {% endblock %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-12">
+                <!-- <div class="container introColor"> -->
+                        <div class="well well-sm intro">
+                            <h3>Welcome to the Explore page!</h3>
+                            <p>Have you ever wondered what topics or themes were most popular in a Ruhlman Conference? Or what student major was most common for Ruhlman presenters? The Explore section seeks to answer these questions by giving users the tools and platform to explore Ruhlman Conference data.
+                            </p>
+                            <h4>Ruhlman Word Clouds</h4>
+                            <p>Below is a carousel of Word Clouds created from Ruhlman Conference data. Word Clouds are visual representations of text where the size of each word signifies the frequency of the word in the source text. In the Ruhlman word clouds, the larger the word, the more frequent that word appears in Ruhlman abstracts and titles. <b>Click</b> on a word cloud below to get a glimpse of the topics discussed at a particular Ruhlman Conference. Word clouds were created by Megan O'Keefe '16.
+                        </div>
+                <!-- </div> -->
+            </div>
+        <div class="col-lg-12">
+            <div class="well">
+                <div id="tnCarousel" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="row">
+                                {% for imageName in WCthumbnails[:4]%}
+                                <div class="col-xs-6 col-md-3">
+                                    <figure>
+                                    <a href="{{ url_for('static', filename='images/'+imageName) }}" class="thumbnail image-link">
+                                    <img src="{{ url_for('static', filename='images/'+imageName) }}" alt="Image">
+                                    </a>
+                                    <figcaption>{{imageName|truncate(5,end=" ")}}</figcaption>
+                                    </figure>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        {% for num in [4,8,12,16] %}
+                        <div class="item">
+                            <div class="row">
+                                {% for imageName in WCthumbnails[num:num+4]%}
+                                <div class="col-xs-6 col-md-3">
+                                    <figure>
+                                    <a href="{{ url_for('static', filename='images/'+imageName) }}" class="thumbnail image-link">
+                                    <img src="{{ url_for('static', filename='images/'+imageName) }}" alt="Image">
+                                    </a>
+                                    <figcaption>{{imageName|truncate(5,end=" ")}}</figcaption>
+                                    </figure>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <a class="left carousel-control" href="#tnCarousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+
+                    <a class="right carousel-control" href="#tnCarousel" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <form class="form form-horizontal" method="post" role="form">
+
+            <div class="row">
+
+                 <div class="col-lg-6">
+                    <div class="well graphs">
+                        <h4>Analysis Questions</h4>
+                        Choose an analysis question and a Ruhlman year from the selectors on the right to generate a graph of Ruhlman Conference data. Choose another question and year to explore more data.
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    {{ gForm.hidden_tag() }}
+                    {{ wtf.form_errors(gForm, hiddens="only") }}
+                    {{ wtf.form_field(gForm.questChoice, "vertical",('lg', 2, 4)) }}
+                    {{ wtf.form_field(gForm.yrChoice, "vertical",('lg', 2, 2)) }}
+                    {{ wtf.form_field(gForm.submit, "vertical",('lg', 2, 2)) }}
+                </div>
+
+
+            </div>
+
+        </form>
+
+        <div class = "col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div id = "barGraph"></div>
+                </div>
+            </div>
+        </div>
+
+    <!-- end container -->
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{super()}}
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- D3.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    <!-- Plotly.js -->
+    <script src="https://d14fo0winaifog.cloudfront.net/plotly-basic.js"></script>
+    <!-- Magnific Popup -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.magnific-popup.js') }}"></script>
+    <script type="text/javascript">
+        var barGraph = {{barGraphJSON | safe}};
+        Plotly.plot("barGraph", barGraph.data, barGraph.layout || {});
+
+        // $('.carousel').carousel({
+        //     interval: 1000
+        // })
+        // $('#tnCarousel').on('slid.bs.carousel', function() {
+        //     // alert("slid");
+        // });
+
+        $('.image-link').magnificPopup({
+            type: 'image',
+            key: 'WC_key',
+            gallery: {
+              enabled: true, // set to true to enable gallery
+
+              navigateByImgClick: true,
+
+              // arrowMarkup: '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>', // markup of an arrow button
+
+              tPrev: 'Previous', // title for left button
+              tNext: 'Next', // title for right button
+              tCounter: '<span class="mfp-counter">%curr% of %total%</span>' // markup of counter
+            },
+            image: {
+            titleSrc: 'WordCloud of Ruhlman Years Data'
+            }
+        });
+    </script>
+{% endblock %}
+
+
